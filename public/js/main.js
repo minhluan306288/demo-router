@@ -1,3 +1,4 @@
+const historyPath = '/demo-router';
 let routes = [
     {
         path: '/',
@@ -23,9 +24,10 @@ function pageNotFound() {
     appView.innerHTML = `<div> Not Found </div>`;
 }
 function router(_routes) {
-    const currentPath = window.location.pathname;
-    console.log('------>', currentPath);
+    let currentPath = window.location.pathname;
+    currentPath = currentPath.replace(historyPath, '');
     const currentRoute = _routes.filter(i => currentPath === i.path);
+    console.log('newCurrent:', currentRoute);
     if (currentRoute[0])
         return currentRoute[0].component();
     else
