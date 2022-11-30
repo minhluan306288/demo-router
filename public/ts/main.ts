@@ -4,6 +4,8 @@ interface Route {
     component: any;
 }
 
+const historyPath = '/demo-router';
+
 let routes: Route[] = [
     {
         path: '/',
@@ -34,7 +36,8 @@ function pageNotFound(){
 }
 
 function router(_routes: Route[]){
-    const currentPath: string = window.location.pathname
+    let currentPath: string = window.location.pathname
+    currentPath = currentPath.replace(historyPath,'')
     const currentRoute: Route[] = _routes.filter(i => currentPath === i.path)
     if(currentRoute[0])
         return currentRoute[0].component();
