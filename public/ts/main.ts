@@ -39,6 +39,7 @@ function router(_routes: Route[]){
     let currentPath: string = window.location.pathname
     currentPath = currentPath.replace(historyPath,'')
     const currentRoute: Route[] = _routes.filter(i => currentPath === i.path)
+    console.log('newCurrent:', currentRoute)
     if(currentRoute[0])
         return currentRoute[0].component();
     else return _routes.filter(i => '/*' === i.path)[0].component();

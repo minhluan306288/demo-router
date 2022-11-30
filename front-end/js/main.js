@@ -27,6 +27,7 @@ function router(_routes) {
     let currentPath = window.location.pathname;
     currentPath = currentPath.replace(historyPath, '');
     const currentRoute = _routes.filter(i => currentPath === i.path);
+    console.log('newCurrent:', currentRoute);
     if (currentRoute[0])
         return currentRoute[0].component();
     else
