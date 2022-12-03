@@ -25,6 +25,7 @@ function pageNotFound() {
 }
 function router(_routes) {
     let currentPath = window.location.pathname;
+    console.log('newCurrent:', currentPath);
     currentPath = currentPath.replace(historyPath, '');
     const currentRoute = _routes.filter(i => currentPath === i.path);
     console.log('newCurrent:', currentRoute);
